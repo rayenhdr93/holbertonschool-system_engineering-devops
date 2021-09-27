@@ -1,2 +1,2 @@
 #!/bin/bash
-find -type f -name "*.gif" | sort -k 1n | rev | cut -d"." -f2 | cut -d"/" -f1 | rev
+find -type f -name "*.gif" | sort -n | rev | cut -d"." -f2 | cut -d"/" -f1 | rev
