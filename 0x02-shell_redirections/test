@@ -10,6 +10,8 @@ drwxr-xr-x 1 rayenhdr rayenhdr 4096 Sep 27 12:29 ..
 -rwxr-xr-x 1 rayenhdr rayenhdr   37 Sep 27 12:29 6-third_line
 -rwxr-xr-x 1 rayenhdr rayenhdr  100 Sep 27 12:29 7-file
 -rwxr--r-- 1 rayenhdr rayenhdr   36 Sep 27 13:36 8-cwd_state
--rw-r--r-- 1 rayenhdr rayenhdr   36 Sep 27 13:38 9-duplicate_last_line
+-rwxr--r-- 1 rayenhdr rayenhdr   36 Sep 27 13:38 9-duplicate_last_line
 -rw-r--r-- 1 rayenhdr rayenhdr   21 Sep 27 12:29 README.md
--rw-r--r-- 1 rayenhdr rayenhdr    0 Sep 27 13:46 test
+-rw-r--r-- 1 rayenhdr rayenhdr    0 Sep 27 13:47 test
+-rw-r--r-- 1 rayenhdr rayenhdr    0 Sep 27 13:47 test
+-rw-r--r-- 1 rayenhdr rayenhdr    0 Sep 27 13:47 test
