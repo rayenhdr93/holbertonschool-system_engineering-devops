@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# www
+pgrep -l bash
