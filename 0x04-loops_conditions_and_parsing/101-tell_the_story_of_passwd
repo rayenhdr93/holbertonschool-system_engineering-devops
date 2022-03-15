@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times
+while read -r line
+do
+	u=${line%:*}
+    echo $u
+done < /etc/passwd
