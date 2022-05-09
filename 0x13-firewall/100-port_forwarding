@@ -11,6 +11,7 @@
 :PREROUTING ACCEPT [0:0]
 -A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
 COMMIT
+
 # Don't delete these required lines, otherwise there will be errors
 *filter
 :ufw-before-input - [0:0]
@@ -61,6 +62,7 @@ COMMIT
 
 # if BROADCAST, RETURN
 -A ufw-not-local -m addrtype --dst-type BROADCAST -j RETURN
+
 # all other non-local packets are dropped
 -A ufw-not-local -m limit --limit 3/min --limit-burst 10 -j ufw-logging-deny
 -A ufw-not-local -j DROP
