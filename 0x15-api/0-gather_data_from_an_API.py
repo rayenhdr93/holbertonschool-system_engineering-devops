@@ -20,4 +20,4 @@ for i in range(0, len(todos)):
 print("Employee {} is done with tasks({}/{})".format(
     users["name"], comptodos, alltodos))
 for i in range(0, len(list)):
-    print("     ", list[i])
+    print("\t", list[i])
