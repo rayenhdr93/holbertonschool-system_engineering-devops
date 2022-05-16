@@ -17,7 +17,7 @@ if __name__ == "__main__":
     users = response2.json()
     u = users["username"]
     f = open('./{}.csv'.format(argv[1]), 'w')
-    writer = csv.writer(f)
+    writer = csv.writer(f, quoting=csv.QUOTE_ALL)
     for i in range(0, len(tod)):
         if (((tod[i]["userId"]) == int(argv[1]))):
             writer.writerow([str(
