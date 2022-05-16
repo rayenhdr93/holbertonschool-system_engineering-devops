@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 '''Gather data from an API'''
-from sys import argv
+
+
 from requests import get
-import json
+from sys import argv
 list = []
 alltodos = 0
 comptodos = 0
