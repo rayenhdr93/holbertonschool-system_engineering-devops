@@ -9,9 +9,7 @@ import csv
 if __name__ == "__main__":
     '''fixin the module'''
     list = []
-    alltod = 0
-    comptod = 0
-    URL1 = "https://jsonplaceholder.typicode.com/tod/"
+    URL1 = "https://jsonplaceholder.typicode.com/todos/"
     URL2 = "https://jsonplaceholder.typicode.com/users/{}".format(argv[1])
     response1 = get(URL1)
     response2 = get(URL2)
