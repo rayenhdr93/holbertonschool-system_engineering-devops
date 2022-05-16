@@ -4,6 +4,7 @@
 
 from requests import get
 from sys import argv
+
 list = []
 alltodos = 0
 comptodos = 0
@@ -19,7 +20,7 @@ for i in range(0, len(todos)):
         if (todos[i]["completed"]):
             comptodos += 1
             list = list + [(todos[i]["title"])]
-print("Employee {} is done with tasks({}/{})".format(
+print("Employee {} is done with tasks({}/{}):".format(
     users["name"], comptodos, alltodos))
 for i in range(0, len(list)):
     print("\t", list[i])
