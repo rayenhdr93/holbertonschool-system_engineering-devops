@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# redirection
+echo "server {
+   listen 800;
+   server_name olddomain.com;
+   return 301 $scheme://newdomain.com$request_uri;
+}" > /etc/nginx/sites-enabled/default
+sudo /etc/init.d/nginx restart
