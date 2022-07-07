@@ -1,23 +1,8 @@
 #!/usr/bin/env bash
 # load balancer
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt show haproxy
-sudo apt install software-properties-common
-sudo add-apt-repository ppa:vbernat/haproxy-2.5
-sudo apt update
-sudo apt install haproxy
-sudo haproxy -v
-sudo cp -a /etc/haproxy/haproxy.cfg{,.orig}
-echo -e "
-frontend haproxy-main
-    bind *:80
-    option forwardfor  
-    default_backend apache_webservers    
-
-backend apache_webservers
-    balance roundrobin
-    server websvr1	34.138.111.16:80 check
-    server websvr2	54.162.185.79:80 check
-" >> /etc/haproxy/haproxy.cfg
-sudo service haproxy restart
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+sudo sed -i "s/ENABLED=0/ENABLED=1" /etc/default/haproxy
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
+sudo sed -i "$ a\listen 3661-lb-01\n\tbind *:80\n\tmode http\n\tbalance roundrobin\n\toption httpclose\n\toption forwardfor\n\tserver 3661-web-01 	34.138.111.16:80 check\n\tserver 3661-web-02 	54.162.185.79:80 check" /etc/haproxy/haproxy.cfg
+sudo service haproxy start
