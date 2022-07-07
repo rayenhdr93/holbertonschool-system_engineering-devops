@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 # load balancer
 sudo apt-get update
-sudo apt-get -y install nginx
-sudo sed -i "17i\        add_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf
-sudo /etc/init.d/nginx restart
-sudo apt-get update
 sudo apt-get upgrade
 sudo apt show haproxy
 sudo apt install software-properties-common
@@ -14,7 +10,7 @@ sudo apt install haproxy
 sudo haproxy -v
 sudo cp -a /etc/haproxy/haproxy.cfg{,.orig}
 echo -e "
-    frontend haproxy-main
+frontend haproxy-main
     bind *:80
     option forwardfor  
     default_backend apache_webservers    
@@ -23,4 +19,5 @@ backend apache_webservers
     balance roundrobin
     server websvr1	34.138.111.16:80 check
     server websvr2	54.162.185.79:80 check
-" > /etc/haproxy/haproxy.cfg
+" >> /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
