@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 # redirection
 echo "server {
-   listen 800;
-   server_name olddomain.com;
-   return 301 $scheme://newdomain.com$request_uri;
-}" > /etc/nginx/sites-enabled/default
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        root /var/www/html;
+        location / {
+                try_files $/uri $/uri/ =404;
+        location /redirect_me{
+                return 301 https://www.youtube.com/watch?v=dQw4w9WgXcQ;
+                                }
+        }
+" > /etc/nginx/sites-enabled/default
 sudo /etc/init.d/nginx restart
