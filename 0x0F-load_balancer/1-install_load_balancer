@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # load balancer
 sudo apt-get update
+sudo apt-get -y install nginx
+sudo sed -i "17i\        add_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf
+sudo /etc/init.d/nginx restart
+sudo apt-get update
 sudo apt-get upgrade
 sudo apt show haproxy
 sudo apt install software-properties-common
