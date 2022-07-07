@@ -2,7 +2,7 @@
 # redirection
 sudo apt-get -y update
 sudo apt-get -y install nginx
-echo "server {
+echo -e "server {
         listen 80 default_server;
         listen [::]:80 default_server;
         root /var/www/html;
@@ -15,4 +15,5 @@ echo "server {
                                 }
         }
 " > /etc/nginx/sites-enabled/default
+echo "Hello World" > /var/www/html/index.nginx-debian.html
 sudo service nginx restart
