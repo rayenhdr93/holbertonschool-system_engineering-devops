@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# 0-
+
+printsen()
+{
+    awk '{split($1,x,"."); print "The subdomain", x[1], "is a", $4, "record and points to", $5}'
+}
+
+
+if [ $# -eq 1 ]; then
+    dig "www.$1" | grep -A1 'ANSWER SECTION:' | grep -v  'ANSWER SECTION:' | printsen
+    dig "lb-01.$1" | grep -A1 'ANSWER SECTION:' | grep -v  'ANSWER SECTION:' | printsen
+    dig "web-01.$1" | grep -A1 'ANSWER SECTION:' | grep -v  'ANSWER SECTION:' | printsen
+    dig "web-02.$1" | grep -A1 'ANSWER SECTION:' | grep -v  'ANSWER SECTION:' | printsen
+else
+    dig "$2.$1" | grep -A1 'ANSWER SECTION:' | grep -v  'ANSWER SECTION:' | printsen
+fi
